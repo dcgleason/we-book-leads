@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>We Book Leads — Every call answered. Every job booked.</title>
+<meta name="description" content="We Book Leads (webookleads.com) puts an AI concierge on your phone and website that answers questions, books jobs and captures leads 24/7. Free on your site for 30 days. Set up for you in 24–48 hours." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500;1,6..72,600&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  color-scheme:light;
+  --primary:#0e7c74; --primary-dark:#095e57; --primary-soft:#ddeeea; --tint:#eef3f1;
+  --ink:#12212e; --ink-2:#354a5a; --muted:#5f7482; --line:#d5e0dc;
+  --accent:#c96f2e; --accent-soft:#fbeedd;
+  --navy:#0f2a3f; --navy-deep:#0a1e2e; --navy-mid:#16344e;
+  --green:#177a52; --green-soft:#dff2e7;
+  --red:#c0392b;
+  --card:#ffffff; --radius:10px;
+  --shadow:0 16px 44px rgba(15,42,63,.13);
+  --shadow-sm:0 6px 22px rgba(15,42,63,.09);
+  /* legacy aliases so inline/component refs keep working with the new palette */
+  --purple:var(--primary); --purple-dark:var(--primary-dark); --purple-soft:var(--primary-soft); --purple-tint:var(--tint);
+  --yellow:#ffffff; --yellow-dark:var(--accent);
+  --hero-1:var(--navy-deep); --hero-2:var(--navy-mid);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    color-scheme:dark;
+    --primary:#2db8a9; --primary-dark:#5ecabb; --primary-soft:#173b3d; --tint:#0d1821;
+    --ink:#eef4f2; --ink-2:#c3d2da; --muted:#93a7b2; --line:#263a44;
+    --accent:#e59a4f; --accent-soft:#3a2a1a;
+    --navy:#0a1e2e; --navy-deep:#060f18; --navy-mid:#10293f;
+    --green:#4cc38a; --green-soft:#16382a;
+    --card:#12222e;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--tint);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,[role="button"],select,summary,input:not([type="checkbox"]){min-height:2.25rem}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600}
+h1,h2,h3{margin:0;line-height:1.12;letter-spacing:-.01em}
+h3{font-family:"Public Sans",system-ui,sans-serif;font-weight:800}
+p{margin:0}
+.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--primary);display:flex;align-items:center;gap:.6rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);flex:0 0 auto}
+.sec-head.center .eyebrow,.hero-copy .eyebrow{justify-content:flex-start}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:8px;padding:.85rem 1.4rem;text-decoration:none;transition:background .15s ease,border-color .15s ease;font-size:.97rem;min-height:3rem}
+.btn-yellow{background:var(--primary);color:#fff;box-shadow:none}
+.btn-yellow:hover{background:var(--primary-dark)}
+.btn-purple{background:var(--navy);color:#fff;box-shadow:none}
+.btn-purple:hover{background:var(--navy-mid)}
+@media (prefers-color-scheme:dark){.btn-purple{background:var(--primary);color:#06231f}.btn-purple:hover{background:var(--primary-dark);color:#fff}}
+.btn-ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--primary)}
+.checks{list-style:none;margin:1.4rem 0;padding:0;display:grid;gap:.85rem}
+.checks li{display:flex;gap:.7rem;align-items:flex-start;font-weight:600;color:var(--ink-2);font-size:1.02rem}
+.checks .ck{flex:0 0 auto;width:24px;height:24px;border-radius:6px;background:var(--primary-soft);color:var(--primary-dark);display:grid;place-items:center;margin-top:.05rem}
+@media (prefers-color-scheme:dark){.checks .ck{color:var(--primary)}}
+.checks .ck svg{width:13px;height:13px}
+.trustline{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.1rem;color:var(--muted);font-size:.9rem;font-weight:600}
+.trustline span{display:inline-flex;gap:.4rem;align-items:center}
+.trustline svg{width:15px;height:15px;color:var(--green)}
+
+/* ── top bar: slim navy strip, left/right split ── */
+.topbar{background:var(--navy-deep);color:#dbe7e2;text-align:left;font-weight:600;font-size:.88rem;padding:.55rem 0}
+.topbar .wrap{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.topbar .dot{opacity:.5;margin:0 .15rem;font-weight:400}
+.topbar b{color:#fff}
+
+/* ── nav: flat bar, square mark, underlined links ── */
+.nav{position:sticky;top:0;z-index:60;background:var(--card);border-bottom:2px solid var(--navy)}
+.nav-in{display:flex;align-items:center;gap:1.4rem;padding:.75rem 0}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.2rem;text-decoration:none;letter-spacing:-.02em}
+.logo .mark{width:38px;height:38px;border-radius:7px;background:var(--navy);display:grid;place-items:center;color:#fff;border-bottom:3px solid var(--primary)}
+.logo .mark svg{width:22px;height:22px}
+.logo em{font-style:normal;color:var(--primary)}
+.logo small{display:block;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.nav-links{display:flex;gap:1.4rem;margin-left:1.2rem}
+.nav-links a{text-decoration:none;font-weight:600;color:var(--ink-2);font-size:.95rem;padding:.5rem 0;border-bottom:2px solid transparent}
+.nav-links a:hover{color:var(--primary-dark);border-bottom-color:var(--accent)}
+.nav-cta{margin-left:auto;display:flex;gap:.6rem;align-items:center}
+.nav .btn{padding:.65rem 1.15rem;min-height:2.7rem}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ── hero: light, split layout, serif headline ── */
+.hero{background:var(--tint);color:var(--ink);padding:3rem 0 3.6rem;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:2.6rem;align-items:start}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:1.8rem}}
+.hero .eyebrow{color:var(--primary)}
+.hero h1{text-align:left;font-size:clamp(2.5rem,4.6vw,3.7rem);font-weight:600;margin:.8rem 0 0;max-width:560px;line-height:1.05}
+.hero h1 .y{color:var(--primary);font-style:italic}
+.hero-sub{text-align:left;color:var(--ink-2);max-width:520px;margin:1.1rem 0 0;font-size:1.07rem;line-height:1.6}
+.hero-cta{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.5rem}
+.demo{margin:0;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--primary);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);color:var(--ink)}
+.demo-photo{position:relative;height:132px;background:#0f2a3f url("assets/img-1.jpg") center 22%/cover no-repeat}
+.demo-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,46,.18),rgba(10,30,46,.72))}
+.demo-photo .live{position:absolute;left:16px;bottom:12px;z-index:2;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.12em;display:flex;gap:.5rem;align-items:center}
+.demo-photo .live i{width:9px;height:9px;border-radius:50%;background:#37e08b;box-shadow:0 0 0 4px rgba(55,224,139,.25)}
+.demo-photo .trade{position:absolute;right:16px;bottom:8px;z-index:2;color:#fff;font-weight:800;font-size:1.3rem;font-family:"Newsreader",Georgia,serif;font-style:italic}
+.demo-body{padding:1.25rem 1.25rem 1.1rem}
+.demo-body h3{text-align:left;font-size:1.15rem}
+.demo-body h3 .p{color:var(--primary)}
+.demo-actions{display:flex;gap:.7rem;justify-content:flex-start;margin:1rem 0 .4rem;flex-wrap:wrap}
+.demo-actions .btn{min-width:190px}
+.demo-note{text-align:left;color:var(--muted);font-size:.85rem;margin-top:.55rem}
+.demo-note b{color:var(--ink-2)}
+.chatlog{margin-top:1rem;border:1.5px solid var(--line);border-radius:10px;padding:1rem;display:grid;gap:.6rem;max-height:300px;overflow-y:auto;background:var(--tint)}
+.msg{max-width:82%;padding:.65rem .85rem;border-radius:10px;font-size:.95rem;line-height:1.45}
+.msg .who{display:block;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-bottom:.2rem}
+.msg.visitor{background:var(--card);border:1px solid var(--line);justify-self:start;border-bottom-left-radius:3px}
+.msg.ai{background:var(--navy);color:#fff;justify-self:end;border-bottom-right-radius:3px}
+.msg.sys{background:var(--green-soft);color:#0d5c3c;justify-self:center;font-weight:700;font-size:.88rem;text-align:center}
+@media (prefers-color-scheme:dark){.msg.sys{color:#8fe3b8}}
+.chatbar{display:flex;gap:.55rem;margin-top:.8rem}
+.chatbar input{flex:1;border:1.5px solid var(--line);border-radius:8px;padding:.8rem 1rem;font:inherit;font-size:.97rem;min-height:3rem;background:var(--card);color:var(--ink)}
+.chatbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.chatbar button{flex:0 0 auto;width:3rem;height:3rem;border-radius:8px;border:0;background:var(--primary);color:#fff;cursor:pointer;display:grid;place-items:center}
+.chatbar button svg{width:19px;height:19px}
+.tabs{display:flex;gap:.45rem;flex-wrap:wrap;justify-content:flex-start;margin-top:1rem}
+.tab{border:1.5px solid var(--line);background:var(--card);color:var(--ink-2);font:inherit;font-weight:700;font-size:.87rem;border-radius:6px;padding:.5rem .9rem;cursor:pointer;min-height:2.4rem}
+.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.hero-under{display:grid;gap:.55rem;justify-content:start;margin-top:1.6rem;color:var(--ink-2);font-size:.93rem;font-weight:600}
+.hero-under span{display:inline-flex;align-items:center;gap:.45rem}
+.hero-under svg{width:15px;height:15px;color:var(--primary)}
+
+/* ── sections ── */
+section{padding:4.2rem 0}
+.sec-white{background:var(--card)}
+.sec-head{max-width:760px}
+.sec-head.center{margin:0 auto;text-align:left}
+.sec-head.center .eyebrow{justify-content:flex-start}
+.sec-head h2{font-size:clamp(2rem,3.8vw,2.9rem);font-weight:600;margin-top:.6rem}
+.sec-head p{color:var(--muted);font-size:1.08rem;line-height:1.6;margin-top:.9rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:2rem}}
+.big-h{font-size:clamp(2.2rem,4.4vw,3.3rem);font-weight:600}
+.big-h .p{color:var(--primary);font-style:italic}
+
+/* transcript card */
+.tcard{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:12px;box-shadow:var(--shadow);padding:1.2rem;position:relative}
+.tcard .thead{display:flex;align-items:center;gap:.8rem;border-bottom:1px solid var(--line);padding-bottom:.9rem}
+.tcard .tic{width:42px;height:42px;border-radius:8px;background:var(--primary-soft);color:var(--primary-dark);display:grid;place-items:center}
+@media (prefers-color-scheme:dark){.tcard .tic{color:var(--primary)}}
+.tcard .tic svg{width:20px;height:20px}
+.tcard .tname{font-weight:800}
+.tcard .tsub{color:var(--muted);font-size:.85rem}
+.tcard .ttime{margin-left:auto;background:var(--green-soft);color:#0d5c3c;font-weight:800;font-size:.8rem;border-radius:6px;padding:.35rem .7rem}
+@media (prefers-color-scheme:dark){.tcard .ttime{color:#8fe3b8}}
+.wave{display:flex;gap:3px;align-items:center;height:26px;margin:1rem 0 .4rem}
+.wave i{width:4px;border-radius:2px;background:var(--primary);opacity:.75;animation:wv 1.1s ease-in-out infinite}
+@keyframes wv{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.wave i{animation:none}html{scroll-behavior:auto}}
+.booked{position:absolute;left:-14px;bottom:-22px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);box-shadow:var(--shadow);border-radius:10px;padding:.8rem 1rem;display:flex;gap:.7rem;align-items:flex-start;max-width:320px}
+.booked .bic{width:36px;height:36px;border-radius:7px;background:var(--accent-soft);display:grid;place-items:center;flex:0 0 auto}
+.booked .bic svg{width:18px;height:18px}
+.booked b{font-size:.92rem}
+.booked p{color:var(--muted);font-size:.82rem;line-height:1.45;margin-top:.15rem}
+@media(max-width:520px){.booked{position:static;margin-top:1rem;max-width:none}}
+
+/* problem cards: ruled list rows instead of tinted boxes */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2.4rem;border-top:2px solid var(--navy)}
+@media(max-width:900px){.cards3{grid-template-columns:1fr}}
+.pcard{background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:1.4rem 1.2rem 1.4rem 0}
+@media(min-width:901px){.pcard + .pcard{border-left:1px solid var(--line);padding-left:1.2rem}}
+.pcard .x{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--red);background:transparent;color:var(--red);display:grid;place-items:center;font-weight:800;margin-bottom:.9rem;font-size:.9rem}
+.pcard h3{font-size:1.2rem;margin-bottom:.55rem}
+.pcard p{color:var(--muted);line-height:1.6}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.2rem}
+@media(max-width:900px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--primary);border-radius:8px;padding:1.3rem 1.4rem}
+.stat b{display:block;font-size:2rem;color:var(--navy);letter-spacing:-.02em;font-family:"Newsreader",Georgia,serif}
+@media (prefers-color-scheme:dark){.stat b{color:var(--ink)}}
+.stat span{color:var(--ink-2);font-weight:600}
+.withline{display:flex;gap:1.6rem;align-items:flex-start;margin-top:2.6rem;flex-wrap:wrap}
+.withline .wl{max-width:250px}
+.withline .wl h3{font-size:1.3rem;line-height:1.3;font-family:"Newsreader",Georgia,serif;font-weight:600}
+.withline .stats{flex:1;margin-top:0;min-width:280px}
+
+/* calls list */
+.calls{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-sm);padding:1.2rem}
+.calls h4{margin:0 0 .9rem;font-size:1rem;display:flex;justify-content:space-between}
+.calls h4 span{color:var(--muted);font-weight:600;font-size:.82rem}
+.call{display:flex;align-items:center;gap:.8rem;border:1px solid var(--line);border-radius:8px;padding:.75rem .9rem;margin-bottom:.6rem;font-size:.93rem}
+.call time{color:var(--muted);font-weight:700;font-size:.82rem;white-space:nowrap}
+.call .tag{margin-left:auto;font-size:.75rem;font-weight:800;border-radius:5px;padding:.28rem .65rem;white-space:nowrap}
+.tag.booked-t{background:var(--green-soft);color:#0d5c3c}
+.tag.lead-t{background:var(--primary-soft);color:var(--primary-dark)}
+.tag.ans-t{background:var(--accent-soft);color:#8a5a00}
+@media (prefers-color-scheme:dark){.tag.booked-t{color:#8fe3b8}.tag.lead-t{color:var(--primary)}.tag.ans-t{color:#f0b269}}
+
+/* steps: numbered editorial columns */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.4rem}
+@media(max-width:900px){.steps{grid-template-columns:1fr}}
+.step{background:transparent;border:0;border-top:2px solid var(--line);border-radius:0;padding:1.3rem 0 0}
+.step .n{width:auto;height:auto;border-radius:0;background:transparent;color:var(--accent);font-weight:600;display:block;margin-bottom:.7rem;font-family:"Newsreader",Georgia,serif;font-size:2rem;line-height:1}
+.step h3{font-size:1.2rem;margin-bottom:.5rem}
+.step p{color:var(--muted);line-height:1.6}
+.step .foot{margin-top:1rem;font-weight:800;font-size:.88rem;display:flex;gap:.45rem;align-items:center;color:var(--primary-dark)}
+@media (prefers-color-scheme:dark){.step .foot{color:var(--primary)}}
+.step .foot i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+
+/* industry explorer */
+.explorer{display:grid;grid-template-columns:290px 1fr;gap:1.4rem;margin-top:2.4rem;align-items:start}
+@media(max-width:900px){.explorer{grid-template-columns:1fr}}
+.ind-list{display:grid;gap:.4rem}
+.ind-btn{text-align:left;background:transparent;border:0;border-left:3px solid var(--line);border-radius:0;padding:.8rem 1rem;font:inherit;cursor:pointer;min-height:3.4rem;color:var(--ink)}
+.ind-btn b{display:block;font-size:1.02rem}
+.ind-btn span{color:var(--muted);font-size:.87rem;font-weight:600}
+.ind-btn[aria-selected="true"]{background:var(--card);border-left-color:var(--accent);box-shadow:var(--shadow-sm)}
+.ind-btn[aria-selected="true"] b{color:var(--primary-dark)}
+@media (prefers-color-scheme:dark){.ind-btn[aria-selected="true"] b{color:var(--primary)}}
+.conv{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-sm);padding:1.4rem}
+.conv .chead{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:.9rem;margin-bottom:1rem;flex-wrap:wrap}
+.conv .chead h3{font-size:1.3rem;font-family:"Newsreader",Georgia,serif;font-weight:600}
+.conv .chead span{color:var(--muted);font-size:.8rem;font-weight:700;letter-spacing:.08em}
+.conv .chatlog{border:0;padding:0;background:transparent;max-height:none}
+
+/* calculator */
+.calc{background:var(--navy);color:#fff;border-radius:14px;padding:2.2rem;display:grid;grid-template-columns:1.1fr .9fr;gap:2.4rem;margin-top:2.4rem}
+@media(max-width:900px){.calc{grid-template-columns:1fr;padding:1.5rem}}
+.calc h3{font-size:1.7rem;font-family:"Newsreader",Georgia,serif;font-weight:600}
+.calc p{color:#b9cbd4;line-height:1.6;margin-top:.6rem}
+.slider-row{margin-top:1.6rem}
+.slider-row label{display:flex;justify-content:space-between;font-weight:700;font-size:.95rem;margin-bottom:.5rem}
+.slider-row label output{color:#7fe0d2}
+input[type="range"]{width:100%;accent-color:#2db8a9;min-height:2rem}
+.calc-out{display:grid;gap:.8rem;align-content:center}
+.calc-out .row{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.calc-out .row span{color:#b9cbd4;font-weight:600;font-size:.92rem}
+.calc-out .row b{font-size:1.5rem;color:#fff;white-space:nowrap}
+.calc-out .row.hero-row b{color:#7fe0d2;font-size:1.9rem}
+.calc .fine{font-size:.8rem;color:#8fa5b1;margin-top:1rem;line-height:1.5}
+
+/* industries grid */
+.indgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:2.4rem}
+@media(max-width:1000px){.indgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.indgrid{grid-template-columns:1fr}}
+.indcard{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.indcard img{height:150px;width:100%;object-fit:cover}
+.indcard h3{padding:1rem 1.1rem 1.1rem;font-size:1.05rem}
+.indcard.more{background:var(--primary-dark);color:#fff;padding:1.4rem;display:flex;flex-direction:column}
+.indcard.more h3{padding:0;font-size:1.3rem;line-height:1.25;font-family:"Newsreader",Georgia,serif;font-weight:600}
+.indcard.more p{color:#cfe8e3;line-height:1.55;margin-top:.6rem;font-size:.95rem}
+.indcard.more a{color:#fff;font-weight:800;text-decoration:underline;margin-top:auto;padding-top:1rem;display:inline-block}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.4rem;align-items:stretch}
+@media(max-width:900px){.price-grid{grid-template-columns:1fr}}
+.price{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:1.7rem;display:flex;flex-direction:column}
+.price.featured{border-color:var(--navy);border-top:5px solid var(--primary);box-shadow:var(--shadow);position:relative}
+.price .badge{position:absolute;top:-14px;left:1.2rem;transform:none;background:var(--navy);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.06em;border-radius:5px;padding:.35rem .7rem;white-space:nowrap}
+.price h3{font-size:1.12rem}
+.price .amt{font-size:2.3rem;font-weight:600;margin:.7rem 0 .1rem;letter-spacing:-.02em;font-family:"Newsreader",Georgia,serif}
+.price .amt small{font-size:.95rem;color:var(--muted);font-weight:600;font-family:"Public Sans",sans-serif}
+.price .sub{color:var(--muted);font-size:.92rem;line-height:1.5}
+.price ul{list-style:none;margin:1.2rem 0;padding:0;display:grid;gap:.6rem;color:var(--ink-2);font-weight:600;font-size:.95rem}
+.price ul li{display:flex;gap:.55rem}
+.price ul svg{width:16px;height:16px;color:var(--primary);flex:0 0 auto;margin-top:.2rem}
+.price .btn{margin-top:auto}
+.guarantee{margin-top:1.4rem;background:var(--navy);color:#fff;border-radius:12px;padding:1.4rem 1.6rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.guarantee .g10{width:64px;height:64px;border-radius:50%;border:2px solid #2db8a9;background:transparent;color:#7fe0d2;font-weight:800;display:grid;place-items:center;font-size:1.05rem;flex:0 0 auto;font-family:"Newsreader",Georgia,serif}
+.guarantee h3{font-size:1.25rem;font-family:"Newsreader",Georgia,serif;font-weight:600}
+.guarantee p{color:#b9cbd4;margin-top:.3rem;line-height:1.55}
+.guarantee .btn{margin-left:auto}
+
+/* disclosure */
+.disclosure{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:900px){.disclosure{grid-template-columns:1fr}}
+.quote-card{background:var(--tint);border:1px solid var(--line);border-left:4px solid var(--primary);border-radius:10px;padding:1.6rem}
+.quote-card .q{font-size:1.3rem;font-weight:500;line-height:1.5;font-family:"Newsreader",Georgia,serif;font-style:italic}
+.quote-card .who{margin-top:1rem;color:var(--muted);font-weight:600;font-size:.9rem}
+
+/* faq */
+.faq{max-width:820px;margin:2.2rem 0 0;display:grid;gap:0;border-top:1px solid var(--line)}
+.faq details{background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:.2rem .2rem}
+.faq summary{font-weight:800;cursor:pointer;padding:.95rem 0;list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center;font-size:1.02rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--primary);font-size:1.4rem;font-weight:800}
+.faq details[open ] summary::after{content:"–"}
+.faq p{color:var(--muted);line-height:1.65;padding:0 0 1.1rem}
+
+/* final cta / form */
+.final{background:var(--navy);color:#fff;border-radius:14px;padding:2.6rem;display:grid;grid-template-columns:1fr 1fr;gap:2.6rem}
+@media(max-width:900px){.final{grid-template-columns:1fr;padding:1.7rem}}
+.final h2{font-size:clamp(2rem,3.6vw,2.8rem)}
+.final h2 .y{color:#7fe0d2;font-style:italic}
+.final .lead{color:#c3d4dc;line-height:1.65;margin-top:1rem}
+.final .checks li{color:#e6efec}
+.final .checks .ck{background:rgba(255,255,255,.14);color:#7fe0d2}
+form.lead{display:grid;gap:.8rem;background:#fff;color:#12212e;border-radius:12px;padding:1.5rem;box-shadow:var(--shadow)}
+form.lead h3{font-size:1.2rem}
+form.lead label{font-weight:700;font-size:.88rem;display:grid;gap:.35rem}
+form.lead input,form.lead select{border:1.5px solid #d5e0dc;border-radius:8px;padding:.75rem .9rem;font:inherit;font-size:.97rem;width:100%;background:#fff;color:#12212e}
+form.lead input:focus,form.lead select:focus{outline:2px solid #0e7c74}
+form.lead .fine{color:#5f7482;font-size:.8rem;line-height:1.5}
+.form-ok{display:none;background:#dff2e7;color:#0d5c3c;border-radius:8px;padding:1rem;font-weight:700;line-height:1.55}
+
+/* footer */
+footer{padding:2.6rem 0 7.5rem;color:var(--muted)}
+footer .frow{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}
+footer p{line-height:1.6;font-size:.92rem;max-width:560px}
+footer a{color:var(--primary-dark);font-weight:700;text-decoration:none}
+@media (prefers-color-scheme:dark){footer a{color:var(--primary)}}
+
+/* floating widget */
+.widget{position:fixed;right:18px;bottom:18px;z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem}
+.widget-pop{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:12px;padding:1rem 1.1rem;max-width:300px;display:none}
+.widget-pop.open{display:block}
+.widget-pop p{color:var(--ink);font-weight:700;line-height:1.5;font-size:.95rem}
+.widget-pop button{margin-top:.6rem}
+.widget-btn{width:60px;height:60px;border-radius:14px;border:0;background:var(--navy);color:#fff;cursor:pointer;box-shadow:0 12px 30px rgba(15,42,63,.4);display:grid;place-items:center;position:relative;border-bottom:4px solid var(--primary)}
+.widget-btn svg{width:28px;height:28px}
+.widget-btn .lbl{position:absolute;top:-14px;right:66px;background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm);font-size:.72rem;font-weight:700;border-radius:8px;padding:.45rem .65rem;white-space:nowrap}
+.widget-panel{width:min(360px,calc(100vw - 36px));background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;display:none}
+.widget-panel.open{display:block}
+.widget-panel .whead{background:var(--navy);color:#fff;padding:.9rem 1.1rem;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.widget-panel .whead small{display:block;font-weight:600;opacity:.85;font-size:.78rem}
+.widget-panel .whead button{background:transparent;border:0;color:#fff;font-size:1.3rem;cursor:pointer;min-height:2.25rem;width:2.25rem}
+.widget-panel .chatlog{border:0;border-radius:0;max-height:300px}
+.widget-panel .chatbar{padding:0 .8rem .9rem;margin-top:.4rem}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><b>We Book Leads</b><span>30-day free trial</span><span class="dot">·</span><span>No setup fee to start</span><span class="dot">·</span><span>Cancel anytime</span></div></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="We Book Leads home">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+      <span>We&nbsp;Book&nbsp;<em>Leads</em><small>webookleads.com · Northern Virginia</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#what">What you get</a>
+      <a href="#how">How it works</a>
+      <a href="#industries">Industries</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-yellow" href="#trial">Book a free trial</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ══════════ HERO ══════════ -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+    <p class="eyebrow">AI voice agent + website chat · Answered 24/7</p>
+    <h1>Need a quick answer?<br /><span class="y">We book the job.</span></h1>
+    <p class="hero-sub">An AI concierge on your website and your phone line. It answers your customers' questions instantly, books the appointment, and texts you the lead — nights, weekends, and at 2 AM.</p>
+    <div class="hero-cta">
+      <a class="btn btn-yellow" href="#trial">Book a free trial</a>
+      <a class="btn btn-ghost" href="#trades">See it in your trade</a>
+    </div>
+    <div class="hero-under">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>No credit card</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Live in 24–48 hours</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>We do the setup</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Always identifies as AI</span>
+    </div>
+    </div>
+
+    <div class="demo" aria-label="Live demo">
+      <div class="demo-photo">
+        <span class="live"><i></i>AI CONCIERGE ONLINE</span>
+        <span class="trade" id="demoTrade">Plumbing</span>
+      </div>
+      <div class="demo-body">
+        <h3>Try the concierge now. <span class="p">It answers 24/7 — and says it's an AI.</span></h3>
+        <div class="demo-actions">
+          <button class="btn btn-yellow" id="voiceBtn" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+            Hear the voice demo
+          </button>
+          <button class="btn btn-purple" id="chatFocusBtn" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Chat now
+          </button>
+        </div>
+        <div class="chatlog" id="heroChat" aria-live="polite"></div>
+        <form class="chatbar" id="heroForm">
+          <label class="sr" for="heroInput" style="position:absolute;left:-9999px">Ask the concierge a question</label>
+          <input id="heroInput" type="text" placeholder="Try “Do you answer after hours?”" autocomplete="off" />
+          <button type="submit" aria-label="Send question"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        </form>
+        <div class="tabs" role="tablist" aria-label="Pick an industry to try" id="heroTabs"></div>
+        <p class="demo-note">This is a working sample. Yours is trained on <b>your</b> services, pricing and service area.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ 2 AM ══════════ -->
+<section>
+  <div class="wrap split">
+    <div>
+      <h2 class="big-h">Every call answered. Every job booked.<br /><span class="p">Even at 2 AM.</span></h2>
+      <p style="color:var(--muted);font-size:1.1rem;line-height:1.65;margin-top:1.1rem">Your concierge picks up your phone and your website chat 24/7, asks the right questions, books the customer on your calendar and texts you the details. We set it all up for you in 24–48 hours.</p>
+      <ul class="checks">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Picks up on the first ring, nights and weekends included</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Trained on your services, pricing and service area</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Books appointments straight onto your calendar</li>
+      </ul>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+        <a class="btn btn-yellow" href="#trial">Start my 30-day free trial →</a>
+        <a class="btn btn-ghost" href="#trades">See a real example</a>
+      </div>
+      <div class="trustline">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>No credit card</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>No setup fee to start</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cancel anytime</span>
+      </div>
+    </div>
+    <div style="padding-bottom:1.6rem">
+      <div class="tcard" role="img" aria-label="Example after-hours call: a leaking water heater booked for 7:30 AM">
+        <div class="thead">
+          <span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div><div class="tname">Martinez Plumbing &amp; Drain</div><div class="tsub">Incoming call · after hours · example</div></div>
+          <span class="ttime">● 1:14 AM</span>
+        </div>
+        <div class="wave" aria-hidden="true"><i style="height:10px"></i><i style="height:18px;animation-delay:.1s"></i><i style="height:24px;animation-delay:.2s"></i><i style="height:12px;animation-delay:.3s"></i><i style="height:20px;animation-delay:.15s"></i><i style="height:26px;animation-delay:.25s"></i><i style="height:14px;animation-delay:.05s"></i><i style="height:22px;animation-delay:.35s"></i><i style="height:10px;animation-delay:.2s"></i><i style="height:18px;animation-delay:.1s"></i></div>
+        <div style="display:grid;gap:.6rem">
+          <div class="msg visitor"><span class="who">Caller</span>Hi, my water heater is leaking all over the garage floor.</div>
+          <div class="msg ai"><span class="who">AI Concierge</span>Sorry to hear that — I'm the AI guide here, and let's get someone out fast. Is the water still running?</div>
+          <div class="msg visitor"><span class="who">Caller</span>I shut the valve off. I'm at 4120 Oak Hollow Dr.</div>
+          <div class="msg ai"><span class="who">AI Concierge</span>Good call. I can have a technician there at 7:30 AM. Want me to book it?</div>
+        </div>
+        <div class="booked">
+          <span class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="#191203" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+          <div><b>New job booked · Tue 7:30 AM</b><p>Water heater leak · 4120 Oak Hollow Dr · Valve shut off · Summary &amp; recording texted to you</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROBLEM ══════════ -->
+<section class="sec-white">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">The problem</p>
+      <h2>Right now, a missed call usually ends one of three ways</h2>
+    </div>
+    <div class="cards3">
+      <div class="pcard"><span class="x">✕</span><h3>It goes to voicemail</h3><p>Most callers hang up without leaving a message, then call the next company on Google.</p></div>
+      <div class="pcard"><span class="x">✕</span><h3>You call back hours later</h3><p>You finish the job, check your phone, and call back. By then they've already booked someone else.</p></div>
+      <div class="pcard"><span class="x">✕</span><h3>You pay someone to answer</h3><p>A front desk hire costs thousands a month and still takes breaks, sick days and nights off.</p></div>
+    </div>
+    <div class="withline">
+      <div class="wl"><p class="eyebrow">With a concierge</p><h3 style="margin-top:.5rem">Your AI front desk picks up every time, so the job stays with you.</h3></div>
+      <div class="stats">
+        <div class="stat"><b>&lt;60s</b><span>Response time on every call and chat</span></div>
+        <div class="stat"><b>24/7</b><span>Nights, weekends and holidays</span></div>
+        <div class="stat"><b>24–48 hrs</b><span>From sign-up to answering customers</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHAT YOU GET ══════════ -->
+<section id="what">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What you get</p>
+      <h2>One AI front desk for your phone and your website</h2>
+      <p>Both run on the same knowledge of your business, so callers and website visitors get the same accurate answers.</p>
+    </div>
+
+    <div class="split" style="margin-top:3rem">
+      <div>
+        <p class="eyebrow">AI voice agent</p>
+        <h3 style="font-size:2rem;margin-top:.5rem">Answers your business line like a trained team member</h3>
+        <ul class="checks">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Greets callers in your business's name, says it's an AI guide, and asks your qualifying questions</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Books the appointment on your calendar and logs it in your CRM</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Sends you a summary and transcript the moment the call ends</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>A busy week never costs extra in missed jobs</li>
+        </ul>
+      </div>
+      <div class="calls" role="img" aria-label="Example list of last night's calls with booked and lead statuses">
+        <h4>Last night's calls <span>Example</span></h4>
+        <div class="call"><time>6:42 PM</time>AC not cooling · Hendricks<span class="tag booked-t">Booked</span></div>
+        <div class="call"><time>8:15 PM</time>Furnace tune-up quote · Alvarez<span class="tag lead-t">Lead</span></div>
+        <div class="call"><time>11:03 PM</time>No heat, 2 kids at home · Park<span class="tag booked-t">Booked</span></div>
+        <div class="call"><time>1:27 AM</time>Thermostat question · Nguyen<span class="tag ans-t">Answered</span></div>
+        <div class="call" style="margin-bottom:0"><time>3:05 AM</time>Burst pipe, basement · Okafor<span class="tag booked-t">Booked</span></div>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:3.5rem">
+      <div class="tcard" style="order:2">
+        <div class="thead" style="margin-bottom:1rem"><div><div class="tname">Rivera Auto Repair</div><div class="tsub">Website chat · example</div></div></div>
+        <div style="display:grid;gap:.6rem">
+          <div class="msg ai"><span class="who">AI Concierge</span>Hi! I'm the AI guide for Rivera Auto Repair. How can we help with your vehicle today?</div>
+          <div class="msg visitor"><span class="who">Visitor</span>How much for front brake pads on a 2019 Civic?</div>
+          <div class="msg ai"><span class="who">AI Concierge</span>Front pads usually run $180–$240 installed. I have Thursday at 9 AM open. Should I hold it for you?</div>
+          <div class="msg visitor"><span class="who">Visitor</span>Perfect, book it.</div>
+        </div>
+        <form class="chatbar" onsubmit="return false"><input type="text" placeholder="Type a message…" aria-label="Example chat input" disabled /><button type="submit" aria-label="Send" disabled style="opacity:.85"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></form>
+      </div>
+      <div style="order:1">
+        <p class="eyebrow">AI concierge · Website chat</p>
+        <h3 style="font-size:2rem;margin-top:.5rem">Turns website visitors into booked appointments</h3>
+        <ul class="checks">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Sits at the top of your site asking “Need a quick answer?” — not buried in a corner</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Answers service and pricing questions instantly, no email gate first</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Collects name, phone and job details, not just an email address</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>We install it on your site. No developer needed.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ HOW IT WORKS ══════════ -->
+<section class="sec-white" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2>Live in 24–48 hours. We do the setup.</h2>
+      <p>No software to learn. You tell us how your business runs and we handle the rest.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Tell us about your business</h3><p>A short call to cover your services, pricing, service area, hours and the questions you always get from new customers.</p><p class="foot"><i></i>15 minutes of your time</p></div>
+      <div class="step"><span class="n">2</span><h3>We build and train it</h3><p>We scan your website, build the knowledge base, and connect it to your existing phone number, website and calendar. You test it and tell us what to change.</p><p class="foot"><i></i>Done by our team</p></div>
+      <div class="step"><span class="n">3</span><h3>It starts answering</h3><p>Every call and chat is answered from day one. You get a text after each one and simply show up to do the job.</p><p class="foot"><i></i>Live within 24–48 hours</p></div>
+    </div>
+
+    <div class="calc" aria-label="Lead estimator">
+      <div>
+        <h3>Run your own numbers</h3>
+        <p>Shops running this model typically see about 5% of website visitors start a conversation, and about half of those leave their name and number. Drag the sliders and see what that means for your site.</p>
+        <div class="slider-row">
+          <label for="visitors">Website visitors per month <output id="visitorsOut">1,000</output></label>
+          <input type="range" id="visitors" min="200" max="10000" step="100" value="1000" />
+        </div>
+        <div class="slider-row">
+          <label for="jobvalue">Average job value <output id="jobvalueOut">$450</output></label>
+          <input type="range" id="jobvalue" min="100" max="5000" step="50" value="450" />
+        </div>
+        <p class="fine">Estimates use the 5% interaction / 2.5% lead rates owners report for this model. Your trial shows your real numbers — that's the point of running it free first.</p>
+      </div>
+      <div class="calc-out">
+        <div class="row"><span>Conversations / month</span><b id="calcConv">50</b></div>
+        <div class="row"><span>New leads / month</span><b id="calcLeads">25</b></div>
+        <div class="row hero-row"><span>Potential job value / month</span><b id="calcValue">$11,250</b></div>
+        <a class="btn btn-yellow" href="#trial" style="width:100%">Prove it on my site — free for 30 days</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TRADES ══════════ -->
+<section id="trades">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Built for your trade</p>
+      <h2>See how it handles a conversation in your industry</h2>
+      <p>The same concierge, trained on how your industry actually books work.</p>
+    </div>
+    <div class="explorer">
+      <div class="ind-list" role="tablist" aria-label="Industries" id="indList"></div>
+      <div class="conv">
+        <div class="chead"><h3 id="convTitle"></h3><span id="convMeta"></span></div>
+        <div class="chatlog" id="convLog"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ INDUSTRIES GRID ══════════ -->
+<section class="sec-white" id="industries">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">Industries</p>
+      <h2>Built for businesses like yours</h2>
+      <p>Join other service businesses in your industry using an AI concierge.</p>
+    </div>
+    <div class="indgrid">
+      <div class="indcard"><img src="assets/img-2.jpg" alt="HVAC technician servicing a wall-mounted air conditioner" loading="lazy" /><h3>HVAC</h3></div>
+      <div class="indcard"><img src="assets/img-1.jpg" alt="Plumber repairing a water heater" loading="lazy" /><h3>Plumbing</h3></div>
+      <div class="indcard"><img src="assets/img-3.jpg" alt="Dental team smiling in a modern dental office" loading="lazy" /><h3>Dental</h3></div>
+      <div class="indcard"><img src="assets/img-4.jpg" alt="Mechanic working on a car engine in a repair shop" loading="lazy" /><h3>Auto Repair</h3></div>
+      <div class="indcard"><img src="assets/img-5.jpg" alt="Contractor reviewing building plans on site" loading="lazy" /><h3>General Contractors</h3></div>
+      <div class="indcard"><img src="assets/img-6.jpg" alt="Forklift operator moving pallets in a warehouse" loading="lazy" /><h3>Material Handling</h3></div>
+      <div class="indcard"><img src="assets/img-1.jpg" alt="Plumber at work on a water heater installation" loading="lazy" style="filter:saturate(.85)" /><h3>Phone Repair &amp; Services</h3></div>
+      <div class="indcard more"><h3>Don't see your industry?</h3><p>The concierge works for any business that books jobs by phone or website. Start a free trial and we'll set it up for yours.</p><a href="#trial">Book a free trial →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PRICING ══════════ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head center">
+      <p class="eyebrow">Pricing</p>
+      <h2>Simple pricing. Priced on the value it brings.</h2>
+      <p>Every plan starts with 30 days free on your real website, with your real customers. We price the monthly plan after the trial, from the leads it actually produced — roughly 10% of the value it delivered.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price">
+        <h3>Free Trial</h3>
+        <div class="amt">$0<small> / 30 days</small></div>
+        <p class="sub">The full concierge, live on your site and phone line. No credit card, no setup fee.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Website chat + voice agent</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Trained on your website</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Lead texts after every conversation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>End-of-trial report with your numbers</li>
+        </ul>
+        <a class="btn btn-ghost" href="#trial">Start free</a>
+      </div>
+      <div class="price featured">
+        <span class="badge">MOST SHOPS START HERE</span>
+        <h3>Concierge</h3>
+        <div class="amt">$297<small> / mo and up</small></div>
+        <p class="sub">Your final price is set after the trial, based on the lead value it produced. Most small shops land between $297 and $1,000 a month.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in the free trial</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Calendar booking + CRM logging</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Instant follow-up text to every new lead</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Monthly transcript review and tuning</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>No contract · cancel anytime</li>
+        </ul>
+        <a class="btn btn-yellow" href="#trial">Start with the free trial</a>
+      </div>
+      <div class="price">
+        <h3>High-Volume</h3>
+        <div class="amt">Custom</div>
+        <p class="sub">For high-traffic sites, big catalogs and multi-location businesses. Setup runs $1,000–$5,000 depending on the knowledge base work.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Deep catalog &amp; pricing knowledge base</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom voice in your business's name</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cross-sell and upsell tuning from transcripts</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Priority support</li>
+        </ul>
+        <a class="btn btn-ghost" href="#trial">Talk to us</a>
+      </div>
+    </div>
+    <div class="guarantee">
+      <span class="g10">10%</span>
+      <div style="max-width:560px"><h3>More leads, or you don't pay</h3><p>If the trial doesn't produce new leads from your existing traffic, there's nothing to buy. We only get paid when it works.</p></div>
+      <a class="btn btn-yellow" href="#trial">Start free trial</a>
+    </div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:1rem">Individual results vary by business, market and website traffic.</p>
+  </div>
+</section>
+
+<!-- ══════════ DISCLOSURE ══════════ -->
+<section class="sec-white">
+  <div class="wrap disclosure">
+    <div>
+      <p class="eyebrow">How we work</p>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem);margin-top:.6rem">It always says it's an AI. That's the rule.</h2>
+      <p style="color:var(--muted);line-height:1.7;margin-top:1rem;font-size:1.05rem">Every concierge we install introduces itself as an AI guide in the first sentence — on the phone and in chat. Customers get fast, honest answers, and nobody ever feels tricked into thinking they talked to a person. It's better for your reputation, and it's the only way we'll build one.</p>
+      <ul class="checks">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>“Hi, I'm your AI guide” — first line, every time</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Hands off to a human the moment a customer asks</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>You see every transcript. Nothing happens in a black box.</li>
+      </ul>
+    </div>
+    <div class="quote-card">
+      <p class="q">“Hi, I'm Danny, your AI guide with Gleason Home Services. I can answer questions, give you pricing, or book a visit. What do you need?”</p>
+      <p class="who">How a concierge opens every conversation — your business name, your rules, identified as AI from the first word.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section id="faq" style="padding-top:3rem">
+  <div class="wrap">
+    <div class="sec-head center"><p class="eyebrow">Questions</p><h2>Owners ask us these first</h2></div>
+    <div class="faq">
+      <details><summary>How does the free trial work?</summary><p>We build your concierge on a copy of your website first, so you can try it before anything goes live. Like it, and we put it on your real site and phone line for 30 days, free. At the end you get a report: conversations, leads, bookings. If it didn't produce, you pay nothing and we take it down.</p></details>
+      <details><summary>Do my customers know it's an AI?</summary><p>Yes, always. It introduces itself as an AI guide in its first sentence, in chat and by voice. That is a hard rule for us, not a setting.</p></details>
+      <details><summary>What if it gets a question wrong?</summary><p>It will, occasionally — like any new hire. That's what the tuning is for. We review transcripts, fix the knowledge base, and it improves every month. When it doesn't know, it's trained to take a name and number instead of guessing.</p></details>
+      <details><summary>What do I need to provide?</summary><p>Your website address and 15 minutes on a call. We pull your services, pricing and FAQs from your site, and you correct anything that's off. No developer, no new phone number, no software to learn.</p></details>
+      <details><summary>What does it cost after the trial?</summary><p>Monthly plans start at $297. Your exact price is set from your trial results — roughly 10% of the value of the leads it produced — so a shop getting $400 of lead value pays far less than one getting $30,000 worth. High-traffic sites with big catalogs may have a one-time setup of $1,000–$5,000. No contract, cancel anytime.</p></details>
+      <details><summary>Which businesses does this work best for?</summary><p>Businesses where a customer needs an answer now: HVAC, plumbing, auto repair, phone repair, dental, contractors, material handling and equipment dealers. It works less well for low-traffic sites — the trial will tell us honestly whether yours has the traffic to make it pay.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FINAL CTA ══════════ -->
+<section id="trial" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="final">
+      <div>
+        <h2>See it on <span class="y">your</span> website first.</h2>
+        <p class="lead">Before we ever talk price, we build a working demo of the concierge on a copy of your own site — your services, your pricing, your customers' real questions. Most owners are sold the moment they hear it answer a question only their shop would get asked.</p>
+        <ul class="checks">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Free demo built on your site, no obligation</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>30 days live, free, if you like the demo</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Local to Northern Virginia — you'll talk to Danny, not a call center</li>
+        </ul>
+      </div>
+      <form class="lead" id="leadForm">
+        <h3>Request your free demo</h3>
+        <label>Your name<input required name="name" type="text" placeholder="e.g. Mike Rivera" autocomplete="name" /></label>
+        <label>Business name<input required name="business" type="text" placeholder="e.g. Rivera Auto Repair" autocomplete="organization" /></label>
+        <label>Your website<input required name="website" type="text" inputmode="url" placeholder="e.g. riveraauto.com" /></label>
+        <label>Industry
+          <select name="industry">
+            <option>HVAC</option><option>Plumbing</option><option>Dental</option><option>Auto repair</option>
+            <option>General contractor</option><option>Material handling</option><option>Phone / device repair</option><option>Other service business</option>
+          </select>
+        </label>
+        <label>Email or phone<input required name="contact" type="text" placeholder="Where should we send the demo link?" autocomplete="email" /></label>
+        <button class="btn btn-purple" type="submit" style="width:100%">Build my free demo</button>
+        <p class="fine">Submitting opens your email app with the details filled in — nothing is sent until you hit send. We reply within one business day with your demo.</p>
+        <div class="form-ok" id="formOk">Your email app should have opened with everything filled in. Hit send there and we'll build your demo. Didn't open? Email <b>danny.c.gleason@gmail.com</b> with your business name and website.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <div>
+      <a class="logo" href="#top" style="margin-bottom:.7rem"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><span>We&nbsp;Book&nbsp;<em>Leads</em></span></a>
+      <p>We Book Leads (webookleads.com) — AI concierge services for local service businesses, built and run by Danny Gleason in Reston, Virginia. Every concierge identifies itself as an AI. Demo conversations on this page are examples.</p>
+    </div>
+    <div>
+      <p><a href="#what">What you get</a> · <a href="#how">How it works</a> · <a href="#pricing">Pricing</a> · <a href="#faq">FAQ</a><br /><br />Questions? <a href="mailto:danny.c.gleason@gmail.com">danny.c.gleason@gmail.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- floating concierge -->
+<div class="widget">
+  <div class="widget-pop" id="widgetPop">
+    <p>Do you need a quick answer? Click here.</p><p style="color:var(--muted);font-weight:600;margin-top:.35rem">Try the demo concierge — it answers and books like the one we would put on your site.</p>
+    <button class="btn btn-yellow" id="popGo" type="button" style="min-height:2.6rem;padding:.6rem 1.1rem">Try the demo chat</button>
+  </div>
+  <div class="widget-panel" id="widgetPanel" role="dialog" aria-label="Demo concierge chat">
+    <div class="whead"><div>We Book Leads<small>Demo concierge · I'm an AI guide</small></div><button id="widgetClose" type="button" aria-label="Close chat">×</button></div>
+    <div class="chatlog" id="widgetChat"></div>
+    <form class="chatbar" id="widgetForm">
+      <input id="widgetInput" type="text" placeholder="Ask about your trade…" autocomplete="off" aria-label="Ask the demo concierge" />
+      <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+    </form>
+  </div>
+  <button class="widget-btn" id="widgetBtn" type="button" aria-label="Open demo concierge chat">
+    <span class="lbl">Do you need a quick answer? Click here.</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6.5a1.5 1.5 0 0 0-3 0V11m0-5.5v-2a1.5 1.5 0 0 0-3 0V11m0-7.5a1.5 1.5 0 0 0-3 0V12m6-1a1.5 1.5 0 0 1 3 0v1.5c0 4-2.5 7.5-6.5 7.5S6 17.6 4.9 14.6l-1-2.8c-.3-.9.2-1.8 1-2 .7-.2 1.4.1 1.8.8L6 12V6.5a1.5 1.5 0 0 1 3 0"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){
+"use strict";
+var CHECK = "";
+
+/* ── Industry demo data ─────────────────────────── */
+var INDUSTRIES = {
+  hvac: {
+    label:"HVAC", photo:"hvac.jpg", sub:"After-hours emergencies", trade:"HVAC",
+    title:"No heat on a Saturday night", meta:"SAT · 9:48 PM · EXAMPLE",
+    greeting:"Hi! I'm the AI guide for Summit Heating & Air. I can answer questions or book a visit — what do you need?",
+    qa:[
+      ["Our furnace stopped working and it's 38 degrees outside.","I'm sorry, let's get you warm. Is anyone at home elderly or very young?"],
+      ["Yes, we have a newborn.","I'm marking this urgent. Our on-call tech can be there by 10:45 PM. Should I confirm?"],
+      ["Yes please.","Done — you're booked for 10:45 PM tonight. I've texted the details to the shop owner and to you. Stay warm."]
+    ],
+    answers:{
+      price:"A diagnostic visit runs $89, and it's waived if you book the repair with us. Want me to grab you a slot tomorrow morning?",
+      hours:"We're answered 24/7 — techs run 7 AM to 10 PM, and emergency calls roll to the on-call tech overnight. Want me to book you in?",
+      book:"I can do that. I have tomorrow at 8 AM or 1:30 PM open. Which works — and what's the name and address for the visit?"
+    }
+  },
+  plumbing: {
+    label:"Plumbing", photo:"plumbing.jpg", sub:"Leaks, clogs and installs", trade:"Plumbing",
+    title:"Water heater leaking at 1 AM", meta:"TUE · 1:14 AM · EXAMPLE",
+    greeting:"Hi! I'm the AI guide for Martinez Plumbing & Drain. Leaks, clogs, water heaters — what can I help with?",
+    qa:[
+      ["My water heater is leaking all over the garage floor.","Sorry to hear that — let's get someone out fast. Is the water still running?"],
+      ["I shut the valve off. I'm at 4120 Oak Hollow Dr.","Good call. I can have a technician there at 7:30 AM. Want me to book it?"],
+      ["Yes, book it.","Booked for Tuesday 7:30 AM. The owner just got a text with the address and the valve note."]
+    ],
+    answers:{
+      price:"Water heater installs usually run $1,400–$1,900 depending on size, and a service visit is $95. Want a tech to confirm the exact number at your place?",
+      hours:"The concierge answers 24/7. Emergency leaks get the on-call plumber; regular work books 7 AM to 6 PM. Want me to set something up?",
+      book:"Happy to. I have 7:30 AM or 11 AM tomorrow. What's the address, and what should the tech know before he arrives?"
+    }
+  },
+  dental: {
+    label:"Dental", photo:"dental.png", sub:"New patient scheduling", trade:"Dental",
+    title:"New patient, tooth pain", meta:"WED · 6:20 PM · EXAMPLE",
+    greeting:"Hi! I'm the AI guide for Brightpath Dental. New patients, cleanings, emergencies — how can I help?",
+    qa:[
+      ["Do you take new patients? My molar has been hurting.","We do, and tooth pain gets priority. Is it sharp pain, or more of a dull ache?"],
+      ["Sharp, since yesterday.","I have an emergency slot tomorrow at 8:15 AM with Dr. Lee. Want me to hold it under your name?"],
+      ["Please do.","Held for 8:15 AM tomorrow. I'll text you the intake form so check-in takes two minutes."]
+    ],
+    answers:{
+      price:"A new-patient exam with X-rays is $129. Cleanings run $110–$160. Want me to check what your insurance covers before you book?",
+      hours:"The office is open Mon–Fri 8 to 5, but I answer around the clock and can hold the first morning slot for you. Want me to?",
+      book:"I can book that. Mornings go fast — I have 8:15 AM or 10:40 AM tomorrow. Which suits you, and who's the appointment for?"
+    }
+  },
+  auto: {
+    label:"Auto repair", photo:"auto.jpg", sub:"Estimates while the bay is full", trade:"Auto Repair",
+    title:"Brake quote from the parking lot", meta:"THU · 12:05 PM · EXAMPLE",
+    greeting:"Hi! I'm the AI guide for Rivera Auto Repair. Estimates, appointments, status checks — what does your vehicle need?",
+    qa:[
+      ["How much for front brake pads on a 2019 Civic?","Front pads usually run $180–$240 installed. I have Thursday at 9 AM open. Should I hold it for you?"],
+      ["Yes, hold it.","Held — Thursday 9 AM under your name. I'll text a reminder the night before, and the estimate is free if you decide not to go ahead."]
+    ],
+    answers:{
+      price:"Most common jobs: brakes $180–$240, battery $160–$210 fitted, oil service $79. Tell me your year and model and I'll narrow it down.",
+      hours:"The shop runs Mon–Sat 8 to 6. I answer 24/7, so you can book the first bay of the day before we even open. Want a slot?",
+      book:"Done deal — I have Thursday 9 AM or Friday 2 PM. What's the vehicle, and a mobile number for the reminder text?"
+    }
+  },
+  contractors: {
+    label:"Contractors", photo:"contractor.jpg", sub:"Estimate requests, captured", trade:"Contractors",
+    title:"Kitchen remodel estimate request", meta:"FRI · 7:52 PM · EXAMPLE",
+    greeting:"Hi! I'm the AI guide for Fairfax Build Co. Remodels, additions, repairs — tell me about your project.",
+    qa:[
+      ["We're thinking about a kitchen remodel. Where do we start?","With a free in-home estimate. Roughly how big is the kitchen, and are you changing the layout?"],
+      ["About 200 sq ft, same layout, new cabinets and counters.","That's our most common project — typically $38K–$55K with mid-range finishes. I can book the estimator for Tuesday. Does 10 AM work?"],
+      ["It does.","Booked. You'll get a confirmation text, and the owner has your project notes already."]
+    ],
+    answers:{
+      price:"Ballparks: kitchens $38K–$55K mid-range, bathrooms $18K–$28K, decks $450–$650 per section. An in-home estimate is free and exact — want one booked?",
+      hours:"Crews work Mon–Fri, and I take estimate requests 24/7 so yours is first in line Monday morning. Want to grab a time?",
+      book:"I can book the estimator. Tuesday 10 AM or Thursday 3 PM are open. What's the address and a sentence about the project?"
+    }
+  },
+  material: {
+    label:"Material handling", photo:"warehouse.jpg", sub:"Spec and quote requests", trade:"Material Handling",
+    title:"Forklift quote, full spec captured", meta:"MON · 10:31 AM · EXAMPLE",
+    greeting:"Hi! I'm the AI guide for ProLift Material Handling. Forklifts, racking, service — what are you looking for?",
+    qa:[
+      ["Do you have a 6,000 lb electric forklift?","We do — the 8-series electric in that class. Do you need it for indoor use only, and what lift height?"],
+      ["Indoor, need 15 ft, and a charger.","Got it: 6,000 lb electric, 15 ft mast, charger included. I'll have a rep send the spec sheet and quote today. Name and email?"],
+      ["Sent.","Thanks — quote request logged with the full spec. Expect it within the hour, and the rep has your details."]
+    ],
+    answers:{
+      price:"Pricing depends on spec — capacity, mast height, battery and charger. Give me those four and I'll get you a real quote today instead of a guess.",
+      hours:"Sales and parts run Mon–Fri 7 to 5, service is 24/7 for contract customers. I capture quote requests around the clock. What do you need priced?",
+      book:"I can set a site visit or a call with a rep. Tomorrow morning or afternoon — and what equipment should they spec?"
+    }
+  }
+};
+var ORDER = ["hvac","plumbing","dental","auto","contractors","material"];
+
+/* ── helpers ────────────────────────────────────── */
+function el(id){return document.getElementById(id);}
+function msg(who, text, kind){
+  var d=document.createElement("div");
+  d.className="msg "+kind;
+  var w=document.createElement("span"); w.className="who"; w.textContent=who;
+  d.appendChild(w); d.appendChild(document.createTextNode(text));
+  return d;
+}
+function scrollEnd(box){ box.scrollTop = box.scrollHeight; }
+function pickAnswer(ind, q){
+  var s=q.toLowerCase();
+  if(/(price|cost|much|quote|estimate|rate)/.test(s)) return ind.answers.price;
+  if(/(hour|open|when|close|weekend|night|24)/.test(s)) return ind.answers.hours;
+  if(/(book|appointment|schedule|slot|visit|come)/.test(s)) return ind.answers.book;
+  if(/(human|person|real|owner|someone)/.test(s)) return "Of course — I'm an AI guide, so I'll pass this straight to the owner with your number and they'll call you back. What's the best number?";
+  if(/(hi|hello|hey)/.test(s) && s.length<20) return ind.greeting;
+  return "Good question — for " + ind.trade.toLowerCase() + " I can answer pricing, hours and booking questions right now, or take your name and number for anything more specific. What would help?";
+}
+
+/* ── hero demo ──────────────────────────────────── */
+var heroBox = el("heroChat"), heroTabs = el("heroTabs"), current = "plumbing";
+ORDER.forEach(function(key){
+  var b=document.createElement("button");
+  b.type="button"; b.className="tab"; b.textContent=INDUSTRIES[key].label;
+  b.setAttribute("role","tab"); b.dataset.key=key;
+  b.addEventListener("click",function(){ setIndustry(key); });
+  heroTabs.appendChild(b);
+});
+function setIndustry(key){
+  current=key; var ind=INDUSTRIES[key];
+  el("demoTrade").textContent = ind.trade;
+  document.querySelector(".demo-photo").style.backgroundImage = "url(assets/" + ind.photo + ")";
+  Array.prototype.forEach.call(heroTabs.children,function(t){
+    t.setAttribute("aria-selected", t.dataset.key===key ? "true":"false");
+  });
+  heroBox.innerHTML="";
+  heroBox.appendChild(msg("AI Concierge", ind.greeting, "ai"));
+  heroBox.appendChild(msg(ind.trade+" customer", ind.qa[0][0], "visitor"));
+  heroBox.appendChild(msg("AI Concierge", ind.qa[0][1], "ai"));
+  scrollEnd(heroBox);
+}
+setIndustry("plumbing");
+
+el("heroForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var input=el("heroInput"), q=input.value.trim(); if(!q) return;
+  var ind=INDUSTRIES[current];
+  heroBox.appendChild(msg("You", q, "visitor"));
+  input.value=""; scrollEnd(heroBox);
+  setTimeout(function(){
+    heroBox.appendChild(msg("AI Concierge", pickAnswer(ind,q), "ai"));
+    scrollEnd(heroBox);
+  },450);
+});
+el("chatFocusBtn").addEventListener("click",function(){ el("heroInput").focus(); });
+el("voiceBtn").addEventListener("click",function(){
+  var ind=INDUSTRIES[current];
+  heroBox.appendChild(msg("Voice demo", "Playing the " + ind.trade.toLowerCase() + " call flow…", "sys"));
+  var i=0;
+  ind.qa.forEach(function(pair){
+    setTimeout(function(){ heroBox.appendChild(msg("Caller", pair[0], "visitor")); scrollEnd(heroBox); }, 500 + i*1400);
+    setTimeout(function(){ heroBox.appendChild(msg("AI Concierge (voice)", pair[1], "ai")); scrollEnd(heroBox); }, 1100 + i*1400);
+    i++;
+  });
+  setTimeout(function(){
+    heroBox.appendChild(msg("Booked", "Appointment booked and texted to the owner. That's the whole flow — on your site it runs itself.", "sys"));
+    scrollEnd(heroBox);
+  }, 700 + ind.qa.length*1400);
+});
+
+/* ── trade explorer ─────────────────────────────── */
+var indList=el("indList"), convLog=el("convLog");
+ORDER.forEach(function(key){
+  var ind=INDUSTRIES[key];
+  var b=document.createElement("button");
+  b.type="button"; b.className="ind-btn"; b.dataset.key=key; b.setAttribute("role","tab");
+  var bb=document.createElement("b"); bb.textContent=ind.label;
+  var ss=document.createElement("span"); ss.textContent=ind.sub;
+  b.appendChild(bb); b.appendChild(ss);
+  b.addEventListener("click",function(){ showConv(key); });
+  indList.appendChild(b);
+});
+function showConv(key){
+  var ind=INDUSTRIES[key];
+  Array.prototype.forEach.call(indList.children,function(t){
+    t.setAttribute("aria-selected", t.dataset.key===key ? "true":"false");
+  });
+  el("convTitle").textContent=ind.title;
+  el("convMeta").textContent=ind.meta;
+  convLog.innerHTML="";
+  ind.qa.forEach(function(pair){
+    convLog.appendChild(msg("Caller", pair[0], "visitor"));
+    convLog.appendChild(msg("AI Concierge", pair[1], "ai"));
+  });
+}
+showConv("hvac");
+
+/* ── calculator ─────────────────────────────────── */
+function fmt(n){ return n.toLocaleString("en-US"); }
+function money(n){ return "$" + fmt(Math.round(n)); }
+function calc(){
+  var v=parseInt(el("visitors").value,10), j=parseInt(el("jobvalue").value,10);
+  el("visitorsOut").textContent=fmt(v);
+  el("jobvalueOut").textContent=money(j);
+  var conv=Math.round(v*0.05), leads=Math.round(v*0.025);
+  el("calcConv").textContent=fmt(conv);
+  el("calcLeads").textContent=fmt(leads);
+  el("calcValue").textContent=money(leads*j);
+}
+el("visitors").addEventListener("input",calc);
+el("jobvalue").addEventListener("input",calc);
+calc();
+
+/* ── lead form → mailto ─────────────────────────── */
+el("leadForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var f=e.target, d=new FormData(f);
+  var subject="Free concierge demo — " + (d.get("business")||"my business");
+  var body=[
+    "Name: "+(d.get("name")||""),
+    "Business: "+(d.get("business")||""),
+    "Website: "+(d.get("website")||""),
+    "Industry: "+(d.get("industry")||""),
+    "Contact: "+(d.get("contact")||""),
+    "",
+    "Please build my free demo and start the 30-day trial conversation."
+  ].join("\n");
+  window.location.href="mailto:danny.c.gleason@gmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+  el("formOk").style.display="block";
+});
+
+/* ── floating widget ────────────────────────────── */
+var panel=el("widgetPanel"), pop=el("widgetPop"), wBox=el("widgetChat"), wStarted=false;
+function widgetToggle(open){
+  panel.classList.toggle("open",open);
+  if(open){ pop.classList.remove("open");
+    if(!wStarted){ wStarted=true;
+      wBox.appendChild(msg("AI Concierge","Hi! I'm an AI guide — this is a live demo of the concierge we install. Pick a trade above on the page, or just ask me about pricing, hours, or booking.","ai"));
+    }
+    el("widgetInput").focus();
+  }
+}
+el("widgetBtn").addEventListener("click",function(){ widgetToggle(!panel.classList.contains("open")); });
+el("widgetClose").addEventListener("click",function(){ widgetToggle(false); });
+el("popGo").addEventListener("click",function(){ widgetToggle(true); });
+setTimeout(function(){ if(!panel.classList.contains("open")) pop.classList.add("open"); }, 3500);
+el("widgetForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var input=el("widgetInput"), q=input.value.trim(); if(!q) return;
+  var ind=INDUSTRIES[current];
+  wBox.appendChild(msg("You", q, "visitor")); input.value=""; scrollEnd(wBox);
+  setTimeout(function(){ wBox.appendChild(msg("AI Concierge", pickAnswer(ind,q), "ai")); scrollEnd(wBox); },450);
+});
+})();
+</script>
+</body>
+</html>
