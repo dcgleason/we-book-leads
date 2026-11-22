@@ -661,8 +661,12 @@ footer a{color:var(--primary-dark);font-weight:700;text-decoration:none}
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Local to Northern Virginia — you talk with Danny directly</li>
         </ul>
       </div>
-      <form class="lead" id="leadForm">
+      <form class="lead" id="leadForm" action="https://formsubmit.co/danny.c.gleason@gmail.com" method="POST">
         <h3>Request your free demo</h3>
+        <input type="hidden" name="_subject" value="New demo request from webookleads.com" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
         <label>Your name<input required name="name" type="text" placeholder="e.g. Mike Rivera" autocomplete="name" /></label>
         <label>Business name<input required name="business" type="text" placeholder="e.g. Rivera Auto Repair" autocomplete="organization" /></label>
         <label>Your website<input required name="website" type="text" inputmode="url" placeholder="e.g. riveraauto.com" /></label>
@@ -674,8 +678,8 @@ footer a{color:var(--primary-dark);font-weight:700;text-decoration:none}
         </label>
         <label>Email or phone<input required name="contact" type="text" placeholder="Where should we send the demo link?" autocomplete="email" /></label>
         <button class="btn btn-purple" type="submit" style="width:100%">Build my free demo</button>
-        <p class="fine">Submitting opens your email app with the details filled in — nothing is sent until you hit send. We reply within one business day with your demo.</p>
-        <div class="form-ok" id="formOk">Your email app should have opened with everything filled in. Hit send there and we'll build your demo. Didn't open? Email <b>danny.c.gleason@gmail.com</b> with your business name and website.</div>
+        <p class="fine">We reply within one business day with your demo.</p>
+        <div class="form-ok" id="formOk">Request received — we'll build your demo and reply within one business day. Anything urgent? Email <b>danny.c.gleason@gmail.com</b>.</div>
       </form>
     </div>
   </div>
@@ -914,22 +918,41 @@ el("visitors").addEventListener("input",calc);
 el("jobvalue").addEventListener("input",calc);
 calc();
 
-/* ── lead form → mailto ─────────────────────────── */
+/* ── lead form → FormSubmit AJAX (emails Danny); mailto fallback ── */
 el("leadForm").addEventListener("submit",function(e){
   e.preventDefault();
   var f=e.target, d=new FormData(f);
-  var subject="Free concierge demo — " + (d.get("business")||"my business");
-  var body=[
-    "Name: "+(d.get("name")||""),
-    "Business: "+(d.get("business")||""),
-    "Website: "+(d.get("website")||""),
-    "Industry: "+(d.get("industry")||""),
-    "Contact: "+(d.get("contact")||""),
-    "",
-    "Please build my free demo and start the 30-day trial conversation."
-  ].join("\n");
-  window.location.href="mailto:danny.c.gleason@gmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
-  el("formOk").style.display="block";
+  var payload={
+    _subject:"New demo request from webookleads.com",
+    _template:"table",
+    _captcha:"false",
+    name:d.get("name")||"",
+    business:d.get("business")||"",
+    website:d.get("website")||"",
+    industry:d.get("industry")||"",
+    contact:d.get("contact")||""
+  };
+  function fallback(){
+    var subject="Free concierge demo — " + (payload.business||"my business");
+    var body=[
+      "Name: "+payload.name,
+      "Business: "+payload.business,
+      "Website: "+payload.website,
+      "Industry: "+payload.industry,
+      "Contact: "+payload.contact,
+      "",
+      "Please build my free demo and start the 30-day trial conversation."
+    ].join("\n");
+    window.location.href="mailto:danny.c.gleason@gmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    el("formOk").style.display="block";
+  }
+  fetch("https://formsubmit.co/ajax/danny.c.gleason@gmail.com",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","Accept":"application/json"},
+    body:JSON.stringify(payload)
+  }).then(function(r){ if(!r.ok) throw new Error("send failed");
+    el("formOk").style.display="block"; f.reset();
+  }).catch(fallback);
 });
 
 /* ── floating widget ────────────────────────────── */
